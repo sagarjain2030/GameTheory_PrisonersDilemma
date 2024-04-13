@@ -21,8 +21,11 @@ mkdir build
 cmake -B .\build\ -G "Unix Makefiles"
 make
 ```
-4. Go to build directory. There you will find exe created. Run the exe and follow the instructions.
+4. Go to build directory. There you will find exe created. Run the exe.
+5. Since there has been some issue with exe not finding dll as issue 1, you can run copy.bat file
+6. Open the build\bin directory and run the exe.
 
 ## Future Work
 1. Add more strategies
 2. Run stategies in threads and Check which are the best strategies to play the game.
+
