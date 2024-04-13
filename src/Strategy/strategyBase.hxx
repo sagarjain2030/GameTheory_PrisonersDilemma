@@ -1,6 +1,8 @@
 #ifndef STRATEGYBASE_H
 #define STRATEGYBASE_H
 
+#include <string>
+
 class strategyBase
 {
     public:

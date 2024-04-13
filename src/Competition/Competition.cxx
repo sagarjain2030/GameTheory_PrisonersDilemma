@@ -1,8 +1,12 @@
 #include "Competition.hxx"
 
+
+Competition::Competition()
+{    
+}
+
 // defect = 0
 // cooperate = 1
-
 void Competition::compete(strategyBase *strat1, strategyBase *strat2)
 {
     int score1 = 0;
