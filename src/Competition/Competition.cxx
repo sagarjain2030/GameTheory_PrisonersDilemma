@@ -1,13 +1,52 @@
 #include "Competition.hxx"
-
+#include <iostream>
+#include <memory>
+#include "../Strategy/alwaysCooperate.cxx"
+#include "../Strategy/alwaysDefect.cxx"
+#include "../Strategy/alwaysRandom.cxx"
 
 Competition::Competition()
-{    
+{
+    std::unique_ptr<strategyBase> p1 = std::make_unique<alwaysCooperate>();
+    std::unique_ptr<strategyBase> p2 = std::make_unique<alwaysDefect>();
+    std::unique_ptr<strategyBase> p3 = std::make_unique<alwaysRandom>();
+    strategies.push_back(p1.get());
+    strategies.push_back(p2.get());
+    strategies.push_back(p3.get());
+}
+
+void Competition::compete()
+{
+    int totalStrategy = int(strategies.size());
+    int player1 = (rand() % (totalStrategy - 0 + 1)) + 1;
+    int player2 = (rand() % (totalStrategy - 0 + 1)) + 1;
+    if(player1 == player2)
+      player2 = (rand() % (totalStrategy - 0 + 1));
+    
+    std::string keyName = strategies[player1]->getName() + "_" + strategies[player2]->getName();
+    std::cout<<keyName<<std::endl;
+    char ch;
+    std::cin>>ch;
+    if(mapMatch.find(keyName) == mapMatch.end())
+    {
+        match(strategies[player1],strategies[player2]);
+        mapMatch[keyName] = 1;
+        std::string reverseKeyName = strategies[player2]->getName() + "_" + strategies[player1]->getName();
+        mapMatch[reverseKeyName] = 1;
+    }
+}
+
+void Competition::getResults()
+{
+    for(auto &strat : strategies)
+    {
+        std::cout << "Strategy: " << strat->getName() << " Amount: " << strat->getAmount() << std::endl;
+    }
 }
 
 // defect = 0
 // cooperate = 1
-void Competition::compete(strategyBase *strat1, strategyBase *strat2)
+void Competition::match(strategyBase *strat1, strategyBase *strat2)
 {
     int score1 = 0;
     int score2 = 0;

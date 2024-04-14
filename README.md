@@ -28,4 +28,3 @@ make
 ## Future Work
 1. Add more strategies
 2. Run stategies in threads and Check which are the best strategies to play the game.
-

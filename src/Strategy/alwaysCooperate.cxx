@@ -3,7 +3,7 @@
 class alwaysCooperate : public strategyBase
 {
     public:
-        int amount;
+        int amount = 0;
         int getMove(int& move)
         {
             return 1;
@@ -22,6 +22,6 @@ class alwaysCooperate : public strategyBase
         }
         std::string getName()
         {
-            return "AlwaysCooperate";
+            return "alwaysCooperate";
         }
 };

@@ -3,7 +3,7 @@
 class alwaysDefect : public strategyBase
 {
     public:
-        int amount;
+        int amount = 0;
         int getMove(int& move)
         {
             return 0;
@@ -22,6 +22,6 @@ class alwaysDefect : public strategyBase
         }
         std::string getName()
         {
-            return "AlwaysDefect";
+            return "alwaysDefect";
         }
 };
