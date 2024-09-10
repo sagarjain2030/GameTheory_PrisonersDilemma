@@ -19,6 +19,7 @@ Looking at the rules, it is clear that the best strategy is to defect. However, 
 ```bash
 mkdir build
 cmake -B .\build\ -G "Unix Makefiles"
+cd build
 make
 ```
 4. Go to build directory. There you will find exe created. Run the exe.
