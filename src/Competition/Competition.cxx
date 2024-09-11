@@ -17,7 +17,9 @@ Competition::Competition()
 
 void Competition::compete()
 {
+    std::cout<<"Inside compete\n";
     int totalStrategy = int(strategies.size());
+     std::cout<<"Inside compete totalStrategy = "<< totalStrategy <<"\n";
     int player1 = (rand() % (totalStrategy - 0 + 1)) + 1;
     int player2 = (rand() % (totalStrategy - 0 + 1)) + 1;
     if(player1 == player2)
