@@ -3,22 +3,13 @@
 class alwaysDefect : public strategyBase
 {
     public:
-        int amount = 0;
         int getMove(int& move)
         {
-            return 0;
+            return DEFECT;
         }
         int getFirstMove()
         {
-            return 0;
-        }
-        void setAmount(int amt)
-        {
-            this->amount = amt;
-        }
-        int getAmount()
-        {
-            return this->amount;
+            return DEFECT;
         }
         std::string getName()
         {

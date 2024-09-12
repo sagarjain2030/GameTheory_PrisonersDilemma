@@ -3,22 +3,13 @@
 class alwaysCooperate : public strategyBase
 {
     public:
-        int amount = 0;
         int getMove(int& move)
         {
-            return 1;
+            return COOPERATE;
         }
         int getFirstMove()
         {
-            return 1;
-        }
-        void setAmount(int amt)
-        {
-            this->amount = amt;
-        }
-        int getAmount()
-        {
-            return this->amount;
+            return COOPERATE;
         }
         std::string getName()
         {

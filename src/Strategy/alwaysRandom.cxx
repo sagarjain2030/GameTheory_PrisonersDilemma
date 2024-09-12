@@ -3,7 +3,6 @@
 class alwaysRandom : public strategyBase
 {
     public:
-        int amount= 0;
         int evenCount = 0;
         int oddCount = 0;
         int getMove(int& move)
@@ -11,12 +10,12 @@ class alwaysRandom : public strategyBase
             int random = (rand() % (10 - 1 + 1)) + 1;
             if((random & 1) == 1)
             {
-                return 1;
+                return COOPERATE;
                 oddCount++;
             }
             else
             {
-                return 0;
+                return DEFECT;
                 evenCount++;
             }
              
@@ -26,22 +25,14 @@ class alwaysRandom : public strategyBase
             int random = (rand() % (10 - 1 + 1)) + 1;
             if((random & 1) == 1)
             {
-                return 1;
+                return COOPERATE;
                 oddCount++;
             }
             else
             {
-                return 0;
+                return DEFECT;
                 evenCount++;
             }
-        }
-        void setAmount(int amt)
-        {
-            this->amount = amt;
-        }
-        int getAmount()
-        {
-            return this->amount;
         }
         std::string getName()
         {

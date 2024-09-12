@@ -7,14 +7,18 @@
 
 class Competition
 {
-    std::vector<strategyBase*> strategies;
+    std::unordered_map<int, int> mapStrategyScore;
     std::unordered_map<std::string,int> mapMatch;
 
     public:
         Competition();
-        void compete();
+        void runCompetition();
+        void compete(int firstPlayerIndex, int secondPlayerIndex);
+        std::unique_ptr<strategyBase> getPlayer(int strategyIndex);
+        void compete1();
         void getResults();
-        void match(strategyBase *strat1, strategyBase *strat2);
+        void match(std::unique_ptr<strategyBase>& strat1, std::unique_ptr<strategyBase>& strat2);
+        void FillScoreMap(std::unique_ptr<strategyBase>& strat1, std::unique_ptr<strategyBase>& strat2, int score1, int score2);
 };
 
 #endif // COMPETITION_H
